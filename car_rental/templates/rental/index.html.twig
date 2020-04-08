@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rental index{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <h1 class="display-2 text-center">Car Rental</h1>
+        <div class="row display-flex justify-content-between">
+        {% for rental in rentals %}
+        <div class="card-body border border-solid m-2">
+            <div clas="card mb-3 ml-5 display-flex" style="width: 20rem;">
+              <img class="card-img-top img-thumbnail" src= "{{ rental.img }}">
+              <div class="card-body">
+                  <h3 class=""> {{ rental.name }}</h3>
+                  <!-- <p>{{ rental.description }}</p>
+                  <p>{{ rental.year }}</p>
+                  <p>{{ rental.price }}</p> -->
+
+                  <a href="{{ path('rental_show', {'id': rental.id}) }}" class="btn btn-info mt-5">show</a>
+                  <a href="{{ path('rental_edit', {'id': rental.id}) }}" class="btn btn-danger mt-5">edit</a>
+              </div>
+            </div>
+          </div>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </div>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

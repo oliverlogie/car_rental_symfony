@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Rental{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <h1 class="display-2 text-center">Edit Car Rental</h1>
+	<div class="display-flex justify-content-between">
+    {{ include('rental/_form.html.twig', {'button_label': 'Update'}) }}
+	
+    <a href="{{ path('rental_index') }}" class="btn btn-info mt-1 mb-1">back to list</a>
+
+    {{ include('rental/_delete_form.html.twig') }}
+	</div>
+</div>
+{% endblock %}
